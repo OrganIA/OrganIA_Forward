@@ -8,43 +8,60 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">OrganIA_MockupPage</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header text-center font-weight-bold">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">OrganIA</a>
             </div>
+
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li>
+                    <a asp-page="/Index">Accueil</a>
+                </li>
+
+                <li>
+                    <a asp-page="/About">FAQ</a>
+                </li>
+            </ul>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </nav>
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - OrganIA_MockupPage - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+<footer class="border footer text-muted">
+    <div class="container">
+        &copy; 2020 - OrganIA_MockupPage - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
+</footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="~/lib/jquery-ui/custom-scrollbar.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

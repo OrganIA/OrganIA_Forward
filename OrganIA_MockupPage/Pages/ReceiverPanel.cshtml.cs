@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using OrganIA_MockupPage.Classes;
+using OrganIA_MockupPage.Models;
 
 namespace OrganIA_MockupPage.Pages
 {
@@ -10,9 +14,11 @@ namespace OrganIA_MockupPage.Pages
         {
             _db = db;
         }
-        public void OnGet()
+        public IEnumerable<Receiver> Receivers { get; set; }
+
+        public async Task OnGet()
         {
-            
+            Receivers = await _db.Receivers.ToListAsync();
         }
     }
 }

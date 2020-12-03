@@ -6,48 +6,48 @@
     <title>@ViewData["Title"] - OrganIA_MockupPage</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom_css.css" />
+
 </head>
 <body>
 
-    <div class="wrapper">
-        <nav id="sidebar">
-            <div class="sidebar-header text-center font-weight-bold">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">OrganIA</a>
-            </div>
-
-            <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li>
-                    <a asp-page="/Index">Accueil</a>
-                </li>
-
-                <li>
-                    <a asp-page="/About">FAQ</a>
-                </li>
-            </ul>
-        </nav>
-        
-        <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+<div class="wrapper">
+        <nav id="navbar">
+            <header>
+                <h1>
+                    <a>OrganIA</a>
+                </h1>
+            </header>
+    
+            <div id="navlinks">
+                <div id="navbox">
+                    <a asp-page="/ReceiverPanel" id="ReceiverIcon">
+                        <i class="fa fa-file-alt"></i> <span class="nav-text">Link 1</span>
+                    </a>
+                    <a asp-page="/Index" id="IndexIcon">
+                        <i class="fa fa-desktop"></i>
+                    </a>
+                    <a>
+                        <i class="fa fa-map-marker-alt"></i>
+                    </a>
+                    <a>
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <a>
+                        <i class="fa fa-chart-line"></i>
+                    </a>
+                    <a asp-page="/About" id="AboutIcon">
+                        <i class="fa fa-comment-dots"></i>
+                    </a>
                 </div>
-            </nav>
-            <div class="container">
-                <main role="main" class="pb-3">
-                    @RenderBody()
-                </main>
             </div>
+        </nav>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </div>
+</div>
 
 <footer class="border footer text-muted">
     <div class="container">

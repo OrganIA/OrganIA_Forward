@@ -2,18 +2,144 @@
 @model OrganIA_MockupPage.Pages.ReceiverPanel
 
 @{
-    Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
 <body>
-<div>
-    
+<div id="main">
+
+
+    <main>
+        <div id="context-menu">
+            <div id="current-user">
+                <img class="avatar" src="https://avatars3.githubusercontent.com/u/9400466?s=460&v=4">
+                Damien Savatier
+                <i class="fa fa-angle-down caret"></i>
+            </div>
+        </div>
+
+        <h1>Receveurs</h1>
+
+        <div class="tabs-section">
+            <div class="tabs">
+                <a class="tab-title active">Onglet 1</a>
+                <a class="tab-title">Onglet 2</a>
+            </div>
+            <div class="side-container">
+                <div class="side-actions">
+                    <input type="text" placeholder="Rechercher">
+                    <a class="button filters-toggle"><i class="fa fa-filter"></i> Filtrer</a>
+                </div>
+            </div>
+            <a class="btn btn-success text-white text-center" asp-page="/AddReceiverForm">Ajouter un receveur</a>
+        </div>
+
+        <div class="filters">
+            <div class="filter-input">
+                <button class="checkbox">Filtre 1</button>
+            </div>
+            <div class="filter-input">
+                <button class="checkbox active">Filtre 2</button>
+            </div>
+            <div class="filter-input">
+                <button class="checkbox">Filtre 3</button>
+            </div>
+            <div class="filter-input">
+                <label for="text1">Filtre texte 1</label>
+                <input type="text" id="text1">
+            </div>
+            <div class="filter-input">
+                <label for="number1">Filtre nombre 1</label>
+                <input type="number" id="number1">
+            </div>
+            <div class="filter-input">
+                <label for="select1">Filtre select 1</label>
+                <select id="select1">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+        </div>
+        <form method="post">
+            @if (Model.Receivers.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Âge</th>
+                            <th>Date d'arrivée</th>
+                            <th>Organe demandé</th>
+                            <th>Sexe</th>
+                            <th>Rhesus</th>
+                            <th>Signe du rhésus</th>
+                            <th>Hôpital du receveur</th>
+                            <th>Hôpital du donneur</th>
+                            <th>BMI</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Receivers)
+                    {
+                        <tbody>
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Age)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.DateOfArrival)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.OrganToTransplant)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Rhesus)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.RhesusSign)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.HospitalTo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.HospitalFrom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.BMI)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Pas de receveurs disponible</p>
+            }
+        </form>
+    </main>
 </div>
+
 </body>
-</html>
+<script language="javascript">
+    document.getElementById('ReceiverIcon').setAttribute('class', 'active');
+</script>

@@ -1,0 +1,125 @@
+﻿@page
+@model OrganIA_MockupPage.Pages.AddReceiverFormModel
+@{
+}
+
+<br/>
+<h2 class="text-info">Ajouter un nouveau receveur</h2>
+<br/>
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Prénom</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.FirstName" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Nom</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.LastName" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Âge</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.Age" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.Age" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Date d'arrivée</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.DateOfArrival" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.DateOfArrival" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Organe à greffer</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.OrganToTransplant" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.OrganToTransplant" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Sexe</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.Gender" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.Gender" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Rhésus</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.Rhesus" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.Rhesus" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Signe du rhésus</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.RhesusSign" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.RhesusSign" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Hôpital du donneur</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.HospitalFrom" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.HospitalFrom" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>Hôpital du receveur</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.HospitalTo" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.HospitalTo" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label>BMI</label>
+            </div>
+            <div class="col-6">
+                <input asp-for="NewReceiver.BMI" class="form-control"/>
+            </div>
+            <span asp-validation-for="NewReceiver.BMI" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <a asp-page="Index" class="btn btn-primary form-control">Back to List</a>
+            </div>
+            <div class="col-3">
+                <input type="submit" value="Create"  class="btn btn-success form-control"/>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
